@@ -1,0 +1,10 @@
+Taikun Zhang 1004050643
+Scott Jurasek 1004203578
+
+Our approach to pipelining was to duplicate all the registers we had previously in our lab5 datapath. For example we had a register to
+hold the instruction, pc, alu_out, and etc for each stage. The control had mostly the same signals with a few additional signals to aid with 
+moving information about the current instruction down the pipeline. Our control was redesigned so that 4 instructions could be possibly executing at the 
+same time, so a seperate module was created for each. This was also done in anticipation of simplifying parts 2 and 3. 
+
+For parts 2 and 3. Fowarding of data was done as explained in the lab document. For part 3, the instruction at execute was checked in the fetch logic to determine whether a branch would occur or not. If it did
+occur, the instr in decode would be flushed at it was not useful. This resulted in only a one cycle loss other than 2 cycles as the new instructions coudl be fetched immediately.
